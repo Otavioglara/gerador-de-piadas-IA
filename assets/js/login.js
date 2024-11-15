@@ -2,7 +2,7 @@ function loginUser(email, senha) {
     console.log('Sending login data:', { email, senha });
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000); // Set a timeout of 5 seconds
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
 
     fetch('https://hook.us2.make.com/w477lqahuysbymwoefaf4q89iow7ibxl', {
         method: 'POST',
@@ -10,19 +10,19 @@ function loginUser(email, senha) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ email, senha }),
-        signal: controller.signal // Attach the signal to the fetch request
+        signal: controller.signal
     })
     .then(response => {
-        clearTimeout(timeoutId); // Clear the timeout if the request completes
-        console.log('Response status:', response.status); // Log the response status
-        if (!response.ok) { // Check if response is not ok
+        clearTimeout(timeoutId);
+        console.log('Response status:', response.status);
+        if (!response.ok) {
             throw new Error('Failed to login, status code: ' + response.status);
         }
         return response.json();
     })
     .then(data => {
         console.log('Login successful:', data);
-        window.location.href = 'index.html'; // Redirect to index.html on successful login
+        window.location.href = 'gerador.html';
     })
     .catch(error => {
         if (error.name === 'AbortError') {
@@ -30,13 +30,13 @@ function loginUser(email, senha) {
             alert('Login request timed out. Please try again.');
         } else {
             console.error('Error during login:', error);
-            alert('Login failed: ' + error.message); // Alert user on error
+            alert('Login failed: ' + error.message);
         }
     });
 }
 
 function handleLogin(event) {
-    event.preventDefault(); // Prevent the form from submitting the traditional way
+    event.preventDefault();
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
     loginUser(email, senha);

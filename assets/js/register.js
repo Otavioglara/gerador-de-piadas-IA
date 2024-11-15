@@ -18,6 +18,7 @@ function registerUser(nome, email, senha, conf_senha) {
             const cleanedText = text.replace(/,\s*}$/, '}');
             const data = JSON.parse(cleanedText);
             console.log('Registration:', data);
+            window.location.href = 'index.html';
         } catch (error) {
             console.error('Error parsing JSON:', error, 'Response text:', text);
         }
@@ -47,5 +48,5 @@ function showForm(formId) {
 showForm('loginForm');
 
 function voltarPagina() {
-    window.location.href = 'login.html'; // Redirects to the login page
+    window.location.href = 'index.html';
 }
