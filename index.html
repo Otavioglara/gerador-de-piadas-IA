@@ -11,7 +11,7 @@
     <h1 class="title">Gerador de Piadas</h1>
     <div id="app">
         <div class="command-container">
-            <input type="text" v-model="comando" placeholder="faça uma piada sobre ..." class="input-box" @keyup.enter="executarComando">
+            <input type="text" v-model="comando" placeholder="faça uma piada sobre ..." class="tema" @keyup.enter="executarComando">
             <button @click="executarComando" class="confirm-button" >Confirmar</button>  
         </div>
         <div class="output-box">

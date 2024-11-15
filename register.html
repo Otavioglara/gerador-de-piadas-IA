@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="/assets/css/register.css">
 </head>
 <body>
+    <div class="back-button">
+        <button onclick="voltarPagina()">Voltar</button>
+    </div>
     <div class="register-container">
+
         <h2>Cadastre-se</h2>
         <form id="registerForm">
             <input type="text" placeholder="Username" id="nome" required>
@@ -15,7 +19,6 @@
             <input type="password" placeholder="Password" id="senha" required>
             <input type="password" placeholder="Confirm Password" id="conf_senha" required>
             <button type="submit">Entrar</button>
-            <p>Não tem uma conta? <a href="#" onclick="showForm('registerForm')">Registre-se</a></p>
         </form>
     </div>
     <script src="/assets/js/register.js"></script>
